@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Array and String Manipulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        pre {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            white-space: pre-wrap; /* Preserve whitespace for better formatting */
+        }
+    </style>
+</head>
+<body>
+    <h1>M10L3: Array and String Manipulation</h1>
+    <pre id="output"></pre>
+    <script>
+        // Function to log messages to the <pre> element
+        function logToOutput(message) {
+            const outputElement = document.getElementById('output');
+            outputElement.textContent += message + '\n';
+        }
+
+        // Task 1: Adding and Removing Elements
+
+        // Create an array containing some initial elements
+        let fruits = ['apple', 'banana', 'orange'];
+        logToOutput("Initial fruits array: " + JSON.stringify(fruits));
+
+        // Use the push method to add a new element to the end of the array
+        fruits.push('mango');
+        logToOutput("Array after adding 'mango': " + JSON.stringify(fruits));
+
+        // Use the pop method to remove the last element from the array
+        fruits.pop();
+        logToOutput("Array after removing the last element: " + JSON.stringify(fruits));
+
+        // Task 2: Sorting Arrays
+
+        // Create an array of numbers in random order
+        let numbers = [3, 1, 5, 2, 4];
+        logToOutput("Initial numbers array: " + JSON.stringify(numbers));
+
+        // Use the sort method to sort the array in ascending order
+        numbers.sort((a, b) => a - b); // Sort numbers in ascending order
+        logToOutput("Array after sorting in ascending order: " + JSON.stringify(numbers));
+
+        // Task 3: Applying Array Methods
+
+        // Create an array of numbers
+        numbers = [3, 1, 5, 2, 4];
+        logToOutput("Numbers array for map, filter, and reduce: " + JSON.stringify(numbers));
+
+        // Use the map method to double each number in the array
+        const doubledNumbers = numbers.map(num => num * 2);
+        logToOutput("Array after doubling each number: " + JSON.stringify(doubledNumbers));
+
+        // Use the filter method to filter out even numbers from the array
+        const oddNumbers = numbers.filter(num => num % 2 !== 0);
+        logToOutput("Array after filtering out even numbers: " + JSON.stringify(oddNumbers));
+
+        // Use the reduce method to calculate the sum of all numbers in the array
+        const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        logToOutput("Sum of all numbers in the array: " + sum);
+
+        // Additional Concepts
+
+        // Spread Operator Example
+        const moreFruits = ['pineapple', 'grape'];
+        const allFruits = [...fruits, ...moreFruits]; // Combine arrays
+        logToOutput("Array after spreading and combining fruits: " + JSON.stringify(allFruits));
+
+        // Rest Operator Example
+        function logFruits(...fruits) {
+            logToOutput("Logged fruits: " + JSON.stringify(fruits));
+        }
+        logFruits('apple', 'banana', 'orange'); // Rest operator gathers all arguments into an array
+
+        // Task 1: Obtaining String Length
+
+        // Create a string with some text content
+        let message = "Hello, World!";
+        logToOutput("\nTask 1: Obtaining String Length");
+        logToOutput("String: " + message);
+        logToOutput("Length of the string: " + message.length); // Output: 13
+
+        // Task 2: Converting Cases
+
+        // Create a string with mixed-case content
+        let text = "Hello, World!";
+        logToOutput("\nTask 2: Converting Cases");
+        logToOutput("Original string: " + text);
+
+        // Use the toUpperCase method to convert the string to uppercase
+        let upperCaseText = text.toUpperCase();
+        logToOutput("Uppercase string: " + upperCaseText); // Output: "HELLO, WORLD!"
+
+        // Use the toLowerCase method to convert the string to lowercase
+        let lowerCaseText = text.toLowerCase();
+        logToOutput("Lowercase string: " + lowerCaseText); // Output: "hello, world!"
+
+        // Task 3: Extracting Substrings
+
+        // Create a string with some text content
+        let sentence = "The quick brown fox jumps over the lazy dog";
+        logToOutput("\nTask 3: Extracting Substrings");
+        logToOutput("Original sentence: " + sentence);
+
+        // Use the substring method to extract a substring from the original string
+        let substring = sentence.substring(4, 9); // Extracts characters from index 4 to 8 (9 is exclusive)
+        logToOutput("Extracted substring (index 4 to 9): " + substring); // Output: "quick"
+
+        // Task 4: Splitting Strings
+
+        // Create a string containing multiple words separated by spaces
+        let words = "The quick brown fox";
+        logToOutput("\nTask 4: Splitting Strings");
+        logToOutput("Original sentence: " + words);
+
+        // Use the split method to split the string into an array of words based on the space delimiter
+        let wordsArray = words.split(' ');
+        logToOutput("Array of words after splitting: " + JSON.stringify(wordsArray)); // Output: [ 'The', 'quick', 'brown', 'fox' ]
+
+        // Additional Concepts
+
+        // Join Method Example: Combining an array of words back into a string
+        let joinedWords = wordsArray.join(' ');
+        logToOutput("String after joining the array with spaces: " + joinedWords); // Output: "The quick brown fox"
+
+    </script>
+</body>
+</html>
